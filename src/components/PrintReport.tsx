@@ -1,6 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
-import type { LoanInputs, LoanResult } from '../utils/loanMath';
+import type { LoanInputs } from '../utils/loanMath';
 import type { CalculationResult } from '../hooks/useLoanCalculations';
 
 interface PrintReportProps {

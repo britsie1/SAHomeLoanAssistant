@@ -67,7 +67,7 @@ export const ComparisonChart: React.FC<ComparisonChartProps> = ({
                 color: isDarkMode ? '#f1f5f9' : '#0f172a'
               }}
               itemStyle={{ color: isDarkMode ? '#f1f5f9' : '#0f172a' }}
-              formatter={(val: number, name: string) => [formatCurrency(val), name]}
+              formatter={(val: number | string | (number | string)[]) => [formatCurrency(Number(val)), '']}
             />
             <Legend />
             
