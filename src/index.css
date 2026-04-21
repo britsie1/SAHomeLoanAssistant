@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@media print {
+  /* Hide interactive elements */
+  header, 
+  aside, 
+  main,
+  footer,
+  button,
+  .no-print,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  /* Ensure the container doesn't block the child print report */
+  #root, #root > div {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background: white !important;
+  }
+
+  /* Force show the print report */
+  .print\:block {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+}
