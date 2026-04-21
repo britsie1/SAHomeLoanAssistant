@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# SA Home Loan Assistant 🏠🇿🇦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-precision mortgage modeling tool specifically designed for the South African property market. This assistant helps homeowners and prospective buyers visualize the long-term impact of extra payments, interest rate fluctuations, and bank-specific fees.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Multi-Scenario Comparison:** Compare up to 5 different repayment strategies (Baseline, Monthly Boosts, Lump Sums, etc.) side-by-side with interactive charts.
+- **South African Bank Realism:**
+    - **Access Bond Simulation:** Model unspent salary and savings as an interest offset.
+    - **Bank Fees & Insurance:** Includes built-in support for the Monthly Service Fee (capped at R69), Life Assurance (decreasing term), and Building Insurance (HOC).
+    - **SARS Transfer Duty:** Automatically calculates upfront costs using the latest **2024/2025 SARS Transfer Duty brackets** (including the R1.1m exemption).
+- **Professional Solver:** Set a "Target Payoff Date" (e.g., "I want to finish in 10 years") and the tool will automatically solve for the required extra monthly payment or annual percentage increase.
+- **Rate Stress Testing:** See exactly how a 1% or 2% Repo Rate hike would affect your monthly installment and total interest paid.
+- **Export & Print:**
+    - **Professional PDF Reports:** Generates a clean, A4-optimized report for bank meetings or financial planning.
+    - **CSV Export:** Download full amortization schedules with granular breakdowns of every cent paid.
 
-## React Compiler
+## 🧮 Mathematical Integrity
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The core calculation engine is verified against South African banking standards:
+- **Daily Interest Accrual:** Uses the 365-day banker's divisor standard.
+- **Gross-to-Net logic:** Fixed installment scenarios correctly prioritize fees and insurance before applying payments to the loan account.
+- **The Savings Paradox:** Correcty models why extra payments are mathematically more effective as interest rates rise.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework:** React 19 (TypeScript)
+- **Styling:** Tailwind CSS (Modern v4 engine)
+- **Charts:** Recharts (High-performance SVG)
+- **Icons:** Lucide React
+- **Date Handling:** date-fns
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Local Development
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Running Tests
+To verify the mathematical models:
+```bash
+npm test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 Disclaimer
+This tool is for illustrative purposes only. Calculations are estimates and may vary slightly from your specific bank's internal systems due to rounding differences or specific contract terms. Always consult with your financial institution for exact figures.
